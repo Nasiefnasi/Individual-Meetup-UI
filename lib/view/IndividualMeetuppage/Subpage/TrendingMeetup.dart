@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:ui_task_bangalore_nasief/view/Description/descriptionpage.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class TopTrendingMeetupCard extends StatelessWidget {
@@ -21,38 +22,60 @@ class TopTrendingMeetupCard extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 3,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage(
-                        images[index],
-                      ),
-                      fit: BoxFit.cover),
-                  color: Colors.amberAccent,
-                  borderRadius: BorderRadius.circular(15)),
-              width: mediaqury.width * .55,
-              height: mediaqury.height * .28,
-              // color: Colors.amberAccent,
-              child: Stack(children: [
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: SizedBox(
-                      width: 110,
-                      child: Image.asset("image/image top leyar-01.png")),
-                ),
-                Align(
-                  alignment: const Alignment(1.1, 1),
-                  child: SizedBox(
-                      width: 90,
-                      height: 90,
-                      child: "0${1 + index}".text.size(60).extraBlack.make()),
-                )
-              ]),
-            ),
-          );
+          return InkWell( onTap: () { Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return const  Descriptionpage();
+          },));
+          
+          }, child: ImageTopTreanding(images: images, mediaqury: mediaqury,index: index,));
         },
+      ),
+    );
+  }
+}
+
+class ImageTopTreanding extends StatelessWidget {
+  ImageTopTreanding({
+    super.key,
+    required this.images,
+    required this.mediaqury,
+   required this.index,
+  });
+
+  final List<String> images;
+  final Size mediaqury;
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: NetworkImage(
+                  images[index],
+                ),
+                fit: BoxFit.cover),
+            color: Colors.amberAccent,
+            borderRadius: BorderRadius.circular(15)),
+        width: mediaqury.width * .55,
+        height: mediaqury.height * .28,
+        // color: Colors.amberAccent,
+        child: Stack(children: [
+          Align(
+            alignment: Alignment.bottomRight,
+            child: SizedBox(
+                width: 110,
+                child: Image.asset("image/image top leyar-01.png")),
+          ),
+          Align(
+            alignment: const Alignment(1.1, 1),
+            child: SizedBox(
+                width: 90,
+                height: 90,
+                child: "0${1 + index}".text.size(60).extraBlack.make()),
+          )
+        ]),
       ),
     );
   }

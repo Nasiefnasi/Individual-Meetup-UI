@@ -41,6 +41,7 @@ dependencies:
   readmore: ^2.2.0
   share: ^2.0.4
   http: ^1.1.0
+  provider: ^6.1.1
   
 
 
