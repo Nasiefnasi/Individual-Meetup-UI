@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:ui_task_bangalore_nasief/model/loginpagesocialmediaicons/socialmedia.dart';
-import 'package:ui_task_bangalore_nasief/view/Login/emailpassword.dart';
-import 'package:ui_task_bangalore_nasief/view/Login/submitbotton.dart';
-import 'package:ui_task_bangalore_nasief/view/Login/toptext.dart';
+import 'package:ui_task_bangalore_nasief/view/Login/SubPage/emailpassword.dart';
+import 'package:ui_task_bangalore_nasief/view/Login/SubPage/submitbotton.dart';
+import 'package:ui_task_bangalore_nasief/view/Login/SubPage/toptext.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
@@ -66,34 +66,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             const Email_passwordtextformfield(),
-
-            // Padding(
-            //   padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-            //   child: "Password"
-            //       .text
-            //       .color(const Color.fromARGB(255, 2, 58, 95))
-            //       .size(15)
-            //       .medium
-            //       .make(),
-            // ),
-            // const TextField(
-            //   decoration: InputDecoration(
-            //     focusedBorder: OutlineInputBorder(
-            //       borderSide: BorderSide(color: Colors.grey, width: 2),
-            //       borderRadius: BorderRadius.all(
-            //         Radius.circular(15),
-            //       ),
-            //     ),
-            //     enabledBorder: OutlineInputBorder(
-            //       borderSide: BorderSide(color: Colors.grey, width: 2),
-            //       borderRadius: BorderRadius.all(
-            //         Radius.circular(15),
-            //       ),
-            //     ),
-            //     hintText: "Enter Password",
-            //     hintStyle: TextStyle(fontSize: 15),
-            //   ),
-            // ),
             SizedBox(
               child: Row(
                 children: [
@@ -124,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
-             Submit_botton(mediaqury: mediaqury),
+            Submit_botton(mediaqury: mediaqury),
             10.heightBox,
             Row(
               children: [
@@ -212,7 +184,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
-
-
-

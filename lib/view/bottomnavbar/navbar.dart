@@ -2,9 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:ui_task_bangalore_nasief/view/IndividualMeetuppage/meetup_page.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 class BottomNav extends StatefulWidget {
+  const BottomNav({super.key});
+
   @override
   _BottomNavState createState() => _BottomNavState();
 }
