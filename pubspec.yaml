@@ -37,6 +37,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   velocity_x: ^4.1.2
   another_carousel_pro: ^1.0.2
+  flutter_rating_bar: ^4.0.1
+  readmore: ^2.2.0
+  share: ^2.0.4
+  http: ^1.1.0
+  
+
 
 dev_dependencies:
   flutter_test:

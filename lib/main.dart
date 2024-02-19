@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_task_bangalore_nasief/view/Login/loginPage.dart';
 
 import 'package:ui_task_bangalore_nasief/view/bottomnavbar/navbar.dart';
 
@@ -13,6 +14,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
         debugShowCheckedModeBanner: false, 
-        home: BottomNav());
+        home: LoginPage());
   }
 }

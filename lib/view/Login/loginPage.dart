@@ -1,9 +1,13 @@
-// ignore_for_file: file_names, unused_local_variable
+// ignore_for_file: file_names, unused_local_variable, avoid_print
+
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 import 'package:ui_task_bangalore_nasief/model/loginpagesocialmediaicons/socialmedia.dart';
 import 'package:ui_task_bangalore_nasief/view/Login/SubPage/emailpassword.dart';
-import 'package:ui_task_bangalore_nasief/view/Login/SubPage/submitbotton.dart';
+
 import 'package:ui_task_bangalore_nasief/view/Login/SubPage/toptext.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -16,6 +20,36 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool isChecked = false;
+
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
+
+  Future<void> login(String email, String password) async {
+    try {
+      final response = await http.post(
+        Uri.parse("https://apiv2stg.promilo.com/user/oauth/token"),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: {
+          "email": email,
+          "password": password,
+        },
+      );
+
+      if (response.statusCode == 200) {
+        var data = jsonDecode(response.body);
+        print("Success");
+        print(data);
+      } else {
+        print("Failed with status code: ${response.statusCode}");
+        print(response.body);
+      }
+    } catch (e) {
+      print("Error: $e");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var mediaqury = MediaQuery.of(context).size;
@@ -32,27 +66,13 @@ class _LoginPageState extends State<LoginPage> {
           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             const Loginpage_toptext(),
-            // 60.heightBox,
-            // Center(
-            //   child: "Hi,Welcome Back!"
-            //       .text
-            //       .extraBlack
-            //       .xl2
-            //       .color(const Color.fromARGB(255, 2, 27, 62))
-            //       .bold
-            //       .make(),
-            // ),
+
             40.heightBox,
-            // Padding(
-            //   padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-            //   child: "Please Sign in to continue"
-            //       .text
-            //       .color(const Color.fromARGB(255, 2, 58, 95))
-            //       .size(15)
-            //       .medium
-            //       .make(),
-            // ),
-            const Email_passwordtextformfield(),
+
+            Email_passwordtextformfield(
+                controllers: emailcontroller,
+                Content: "Please Sign in to continue",
+                hinttxt: "Enter Email or Mob No."),
             Align(
               alignment: Alignment.topRight,
               child: Padding(
@@ -65,7 +85,10 @@ class _LoginPageState extends State<LoginPage> {
                     .make(),
               ),
             ),
-            const Email_passwordtextformfield(),
+            Email_passwordtextformfield(
+                controllers: passwordcontroller,
+                Content: "Password",
+                hinttxt: "Enter Password"),
             SizedBox(
               child: Row(
                 children: [
@@ -96,7 +119,28 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
-            Submit_botton(mediaqury: mediaqury),
+            SizedBox(
+              width: mediaqury.width,
+              height: mediaqury.height * .07,
+              child: Expanded(
+                  child: ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                              Colors.blue.withOpacity(0.20)),
+                          shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                  side: const BorderSide(
+                                      width: 2, color: Colors.blue),
+                                  borderRadius: BorderRadius.circular(15)))),
+                      onPressed: () async {
+                        print(
+                            "essssssssssssssssssssssssssssssssssssssssssssssss");
+                        await login(
+                            emailcontroller.text, passwordcontroller.text);
+                      },
+                      child: "Submit".text.xl.make())),
+            ),
+            // Submit_botton(mediaqury: mediaqury),
             10.heightBox,
             Row(
               children: [

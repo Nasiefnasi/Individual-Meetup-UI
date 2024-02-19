@@ -1,9 +1,10 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:ui_task_bangalore_nasief/view/IndividualMeetuppage/meetup_page.dart';
+import 'package:ui_task_bangalore_nasief/view/Description/descriptionpage.dart';
+import 'package:ui_task_bangalore_nasief/view/individualMeetuppage/meetup_page.dart';
 
-class BottomNav extends StatefulWidget {
+class BottomNav extends StatefulWidget {  
   const BottomNav({super.key});
 
   @override
@@ -16,8 +17,7 @@ class _BottomNavState extends State<BottomNav> {
   // Define your pages here
   final List<Widget> _pages = const [
     MeetUpPage(),
-    MeetUpPage(),
-    MeetUpPage(),
+    Descriptionpage(),
     MeetUpPage(),
     MeetUpPage()
   ];
