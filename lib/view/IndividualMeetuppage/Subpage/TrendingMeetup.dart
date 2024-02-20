@@ -34,7 +34,7 @@ class TopTrendingMeetupCard extends StatelessWidget {
 }
 
 class ImageTopTreanding extends StatelessWidget {
-  ImageTopTreanding({
+  const ImageTopTreanding({
     super.key,
     required this.images,
     required this.mediaqury,

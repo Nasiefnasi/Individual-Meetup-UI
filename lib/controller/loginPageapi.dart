@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, use_build_context_synchronously
+// ignore_for_file: avoid_print, use_build_context_synchronously, file_names
 
 import 'dart:convert';
 
@@ -12,7 +12,7 @@ class ApiServies extends ChangeNotifier {
   Future<void> login(
       String email, String password, BuildContext context) async {
     try {
-      final sha256Password = _sha256(password);
+      final sha256Password  = _sha256(password);
 
       final formData = {
         'username': email,
@@ -37,7 +37,7 @@ class ApiServies extends ChangeNotifier {
         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
                             builder: (context) {
-                              return BottomNav();
+                              return const BottomNav();
                             },
                           ),
                         );
@@ -49,14 +49,14 @@ class ApiServies extends ChangeNotifier {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('Invalid ID Password'),
-              content: Text('Please check your email and password.'),
+              title: const Text('Invalid ID Password'),
+              content: const Text('Please check your email and password.'),
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 ),
               ],
             );

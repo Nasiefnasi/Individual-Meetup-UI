@@ -55,7 +55,7 @@
 //           // TextField(keyboardType: TextInputType.emailAddress,
 //           //   controller: controllers,
 
-            // ignore_for_file: valid_regexps, non_constant_identifier_names, camel_case_types, must_be_immutable
+            // ignore_for_file: valid_regexps, non_constant_identifier_names, camel_case_types, must_be_immutable, unnecessary_brace_in_string_interps
             
 //           //   decoration: InputDecoration(
 //           //     focusedBorder: const OutlineInputBorder(
