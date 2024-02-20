@@ -26,8 +26,6 @@ class _MeetUpPageState extends State<MeetUpPage> {
     var mediaqury = MediaQuery.of(context).size;
     int activePage = 1;
 
-    
-
     return Scaffold(
       // backgroundColor: Colors.amberAccent,
       appBar: AppBar(
@@ -40,10 +38,10 @@ class _MeetUpPageState extends State<MeetUpPage> {
       ),
       body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SizedBox(
-                  width: double.infinity,
-                  child: ListView(
+        padding: const EdgeInsets.all(8.0),
+        child: SizedBox(
+          width: double.infinity,
+          child: ListView(
             children: [
               20.heightBox,
               SearchMeetUp(mediaqury: mediaqury),
@@ -61,9 +59,9 @@ class _MeetUpPageState extends State<MeetUpPage> {
               TopTrendingMeetupCard(mediaqury: mediaqury, images: images),
               10.heightBox,
             ],
-                  ),
-                ),
-          )),
+          ),
+        ),
+      )),
     );
   }
 }

@@ -5,19 +5,16 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-
-class ApiServies extends ChangeNotifier{
+class ApiServies extends ChangeNotifier {
   Future<void> login(String email, String password) async {
     try {
       final response = await http.post(
         Uri.parse("https://apiv2stg.promilo.com/user/oauth/token"),
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': 'Basic UHJvbWlsbzpxNCE1NkBaeSN4MiRHQg=='
         },
-        body: {
-          "email": email,
-          "password": password,
-        },
+        body: {"email": email, "password": password, "grant_type": password},
       );
 
       if (response.statusCode == 200) {
@@ -32,5 +29,4 @@ class ApiServies extends ChangeNotifier{
       print("Error: $e");
     }
   }
-
 }

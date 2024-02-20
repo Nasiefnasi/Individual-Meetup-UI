@@ -45,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
 
               40.heightBox,
 
-              Email_passwordtextformfield(
+              Email_passwordtextformfield(passwordhaid: false,
                   controllers: emailcontroller,
                   Content: "Please Sign in to continue",
                   hinttxt: "Enter Email or Mob No."),
@@ -56,12 +56,12 @@ class _LoginPageState extends State<LoginPage> {
                   child: "Sign In With OTP"
                       .text
                       .color(const Color.fromARGB(255, 3, 104, 171))
-                      .size(18)
+                      .size(18) 
                       .medium
                       .make(),
                 ),
               ),
-              Email_passwordtextformfield(
+              Email_passwordtextformfield(passwordhaid: true,
                   controllers: passwordcontroller,
                   Content: "Password",
                   hinttxt: "Enter Password"),
